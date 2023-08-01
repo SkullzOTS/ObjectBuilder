@@ -291,10 +291,10 @@ THE SOFTWARE.
                     var isOutfit:Boolean = (thingData.category == ThingCategory.OUTFIT);
                     var isMissile:Boolean = (thingData.category == ThingCategory.MISSILE);
                     directionGroup.visible = (isOutfit || isMissile);
-                    topLeftButton.visible = isMissile;
-                    topRightButton.visible = isMissile;6
-                    bottomRightButton.visible = isMissile;
-                    bottomLeftButton.visible = isMissile;
+                    topLeftButton.visible = (isOutfit || isMissile);
+                    topRightButton.visible = (isOutfit || isMissile);6
+                    bottomRightButton.visible = (isOutfit || isMissile);
+                    bottomLeftButton.visible = (isOutfit || isMissile);
 
 					var thing:ThingType = thingData.thing;
                     thingView.frameGroupType = FrameGroupType.DEFAULT;
@@ -646,19 +646,19 @@ THE SOFTWARE.
                         _patternY = isOutfit ? 0 : 1;
                         break;
                     case Direction.NORTHWEST:
-                        _patternX = 0;
+                        _patternX = isOutfit ? 7 : 0;
                         _patternY = 0;
                         break;
                     case Direction.NORTHEAST:
-                        _patternX = 2;
+                        _patternX = isOutfit ? 4 : 2;
                         _patternY = 0;
                         break;
                     case Direction.SOUTHWEST:
-                        _patternX = 0;
+                        _patternX = isOutfit ? 6 : 0;
                         _patternY = 2;
                         break;
                     case Direction.SOUTHEAST:
-                        _patternX = 2;
+                        _patternX = isOutfit ? 5 : 2;
                         _patternY = 2;
                         break;
                     default:
